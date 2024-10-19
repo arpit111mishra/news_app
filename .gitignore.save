@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+
+userdata.csv
+# Ignore everything
+*
+
+# Except this file
+!.gitignore

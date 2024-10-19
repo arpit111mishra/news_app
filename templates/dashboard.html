@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Welcome, {{ session['email'] }}!</h2>
+            <div class="mt-4">
+                <a href="{{ url_for('news') }}" class="btn btn-primary">Search News</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

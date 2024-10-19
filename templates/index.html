@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <div class="text-center">
+        <h1>Welcome to News App</h1>
+        <p class="lead">Stay updated with the latest news</p>
+        {% if 'email' not in session %}
+            <div class="mt-4">
+                <a href="{{ url_for('login') }}" class="btn btn-primary me-2">Login</a>
+                <a href="{{ url_for('register') }}" class="btn btn-outline-primary">Register</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}News{% endblock %}
+{% block content %}
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h2>News Search</h2>
+            <form method="GET" class="mt-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="keyword" placeholder="Enter keyword to search news" value="{{ request.args.get('keyword', '') }}">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% if articles %}
+        <div class="row">
+            {% for article in articles %}
+                <div class="col-md-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.title }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ article.source.name }}</h6>
+                            <p class="card-text">{{ article.description }}</p>
+                            <a href="{{ article.url }}" class="btn btn-sm btn-outline-primary" target="_blank">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock %}
